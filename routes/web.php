@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,11 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// route home page
+Route::get('/', [ProductController::class, 'index'])
+    ->name('products.index');
+
+Route::view('/welcome', 'welcome')->name('welcome');
 
 Auth::routes();
 

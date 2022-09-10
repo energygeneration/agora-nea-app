@@ -11,7 +11,9 @@
                     @if(auth()->user()->is_admin == 1)
                     <a href="{{url('admin/routes')}}">Admin</a>
                     @else
-                    <div class=”panel-heading”>Normal User</div>
+                    @foreach ( $products as $product )
+                    <div class=”panel-heading”>{{ $product->name }}</div>
+                    @endforeach
                     @endif
                 </div>
             </div>
