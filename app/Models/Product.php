@@ -20,6 +20,5 @@ class Product extends Model
         'description',
         'price',
         'image',
-        'created_at'
     ];
 }

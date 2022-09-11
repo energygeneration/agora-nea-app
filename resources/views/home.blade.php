@@ -17,6 +17,26 @@
                 </div>
             </div>
 
+
+            <div class="row mt-5">
+                <div class="col-lg-12 margin-tb">
+                    <div class="pull-left">
+                        <h2>Laravel 8 CRUD Example </h2>
+                    </div>
+                    <div class="pull-right">
+                        <a class="btn btn-success" href="{{ route('create') }}" title="Create a product"> <i
+                                class="fas fa-plus-circle"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                    <p></p>
+                </div>
+            @endif
+
             <table class="table table-bordered table-responsive-lg">
                 <tr>
                     <th>No</th>
@@ -28,9 +48,11 @@
                 </tr>
                 @foreach ($products as $product)
                     <tr>
+                        <td>{{ $product->id }}</td>
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->description }}</td>
                         <td>{{ $product->price }}</td>
+                        <td></td>
                         <td>
                             <form action="" method="POST">
 
@@ -53,6 +75,9 @@
                     </tr>
                 @endforeach
             </table>
+
+            {{-- {!! $products->links() !!} --}}
+        </div>
         </div>
     </div>
 @endsection
