@@ -34,6 +34,7 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
 
     Route::get('/home', [HomeController::class, 'home'])->name('home');
     Route::get('/home', [ProductController::class, 'home'])->name('home');
+    Route::get('/create', [ProductController::class, 'create'])->name('create');
 });
 
 /*------------------------------------------
